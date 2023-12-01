@@ -8,7 +8,6 @@ public:
     PlaylistNode();  
     PlaylistNode(string id, string song, string artist, int length);  
 
-    // Accessors
     string GetID() const;
     string GetSongName() const;
     string GetArtistName() const;
