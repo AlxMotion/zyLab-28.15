@@ -118,11 +118,15 @@ PlaylistNode* ExecuteMenu(char option, string playlistTitle, PlaylistNode* headN
          
       cout << "Total time: " << totalTime << " seconds" << endl;
          
+   } else if(option == 'c'){
+      
+         
    }
    
 }
 
 int main() {
+   char option;
    string playlistTitle = "";
 
    //Step 2: Prompting user for title of playlist
@@ -135,7 +139,9 @@ int main() {
    //Prompt user for input
    cout << "Choose an option: " << endl;
    
+   cin >> option;
 
+   ExecuteMenu(option, playlistTitle, PlaylistNode* headNode); // need to get headnode
    
    return 0;
 }
