@@ -38,6 +38,10 @@ PlaylistNode* ExecuteMenu(char option, string playlistTitle, PlaylistNode* headN
       PlaylistNode* currNode = headNode;
       int numIterations = 1;
 
+      if(headNode == NULL){
+         cout << "Playlist is empty" << endl;
+      }
+      
       //Prints out each node's info
       while(currNode->GetNext != NULL){
          cout << numIterations << "." << endl;
