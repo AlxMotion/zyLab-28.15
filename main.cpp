@@ -18,7 +18,20 @@ void PrintMenu(const string playlistTitle) {
 PlaylistNode* ExecuteMenu(char option, string playlistTitle, PlaylistNode* headNode) {
    //Step 4: Implement Execute Menu
    if(option == 'a'){
-      headNode->
+      PlaylistNode* currNode = headNode->GetNext();;
+      PlaylistNode* lastNode = currNode;   
+
+      //Finding last node in list
+      while(currNode->GetNext != NULL){
+         currNode = currNode->GetNext();
+         if(currNode != NULL){
+            lastNode = currNode;
+         }
+      }
+      lastNode->InsertAfter(headNode); //Wrong need to get input from user, unsure
+   }
+   else if(option == 'b'){
+      
    }
    
 }
