@@ -16,7 +16,10 @@ void PrintMenu(const string playlistTitle) {
 }
 
 PlaylistNode* ExecuteMenu(char option, string playlistTitle, PlaylistNode* headNode) {
-   /* Type your code here */
+   //Step 4: Implement Execute Menu
+   if(option == 'a'){
+      headNode->
+   }
    
 }
 
