@@ -17,10 +17,29 @@ void PrintMenu(const string playlistTitle) {
 
 PlaylistNode* ExecuteMenu(char option, string playlistTitle, PlaylistNode* headNode) {
    //Step 4: Implement Execute Menu
-   /*
+   
    if(option == 'a'){
-      PlaylistNode* currNode = headNode->GetNext();
-      PlaylistNode* lastNode = currNode;   
+      cout << "ADD SONG" << endl;
+      PlaylistNode* currNode = headNode;
+      PlaylistNode* lastNode = NULL;   
+      string songName;
+      string artistName;
+      int songLength;
+      string ID;
+   
+      //Prompting User and Getting Inputs
+      cout << "Enter song's unique ID:" << endl;
+      cin >> ID;
+      cout << "Enter song's name:" << endl;
+      cin >> songName;
+      cout << "Enter artist's name:" << endl;
+      cin >> artistName;
+      cout << "Enter song's length (in seconds):" << endl;
+      cin >> songLength;
+
+      // Creates new node with inputs
+      PlaylistNode* newNode(ID, songName, artistName, songLength);
+      
 
       //Finding last node in list
       while(currNode->GetNext != NULL){
@@ -29,10 +48,9 @@ PlaylistNode* ExecuteMenu(char option, string playlistTitle, PlaylistNode* headN
             lastNode = currNode;
          }
       }
-      lastNode->InsertAfter(headNode); //Wrong need to get input from user, unsure
-   }
-*/
-   if(option == 'o'){
+      lastNode->InsertAfter(newNode);
+   
+   } else if(option == 'o'){
       cout << playlistTitle << " - OUTPUT FULL PLAYLISTS" << endl;
       
       PlaylistNode* currNode = headNode;
