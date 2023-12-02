@@ -107,6 +107,17 @@ PlaylistNode* ExecuteMenu(char option, string playlistTitle, PlaylistNode* headN
             currNode = currNode->GetNext();
          }
          
+   } else if(option == 't'){
+      int totalTime = 0;
+      cout << "OUTPUT TOTAL TIME OF PLAYLIST (IN SECONDS)" << endl;
+
+      while(currNode->GetNext() != NULL){
+            totalTime += currNode->GetSongLength();
+            currNode = currNode->GetNext();
+         }
+         
+      cout << "Total time: " << totalTime << " seconds" << endl;
+         
    }
    
 }
