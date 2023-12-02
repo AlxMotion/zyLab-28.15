@@ -1,7 +1,7 @@
 #include <iostream>
 #include "PlaylistNode.h"
 
-   using namespace std;
+using namespace std;
 
 void PrintMenu(const string playlistTitle) {
    /* Type your code here */
@@ -14,7 +14,14 @@ PlaylistNode* ExecuteMenu(char option, string playlistTitle, PlaylistNode* headN
 }
 
 int main() {
-   int car;
+   string playlistTitle = "";
+
+   //Step 2: Prompting uesr for title of playlist
+   cout << "Enter playlist's title: " << endl;
+   cin >> playlistTitle;
+
+   
+
    
    return 0;
 }
