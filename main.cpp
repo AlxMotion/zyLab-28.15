@@ -39,12 +39,15 @@ PlaylistNode* ExecuteMenu(char option, string playlistTitle, PlaylistNode* headN
 int main() {
    string playlistTitle = "";
 
-   //Step 2: Prompting uesr for title of playlist
+   //Step 2: Prompting user for title of playlist
    cout << "Enter playlist's title: " << endl;
    cin >> playlistTitle;
 
-   //Step 5 call print menu and prompt user
+   //Step 5 call print menu
    PrintMenu(playlistTitle);
+
+   //Prompt user for input
+   cout << "Choose an option: " << endl;
    
 
    
