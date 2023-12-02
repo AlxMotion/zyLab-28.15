@@ -17,8 +17,9 @@ void PrintMenu(const string playlistTitle) {
 
 PlaylistNode* ExecuteMenu(char option, string playlistTitle, PlaylistNode* headNode) {
    //Step 4: Implement Execute Menu
+   /*
    if(option == 'a'){
-      PlaylistNode* currNode = headNode->GetNext();;
+      PlaylistNode* currNode = headNode->GetNext();
       PlaylistNode* lastNode = currNode;   
 
       //Finding last node in list
@@ -30,8 +31,21 @@ PlaylistNode* ExecuteMenu(char option, string playlistTitle, PlaylistNode* headN
       }
       lastNode->InsertAfter(headNode); //Wrong need to get input from user, unsure
    }
-   else if(option == 'b'){
+*/
+   if(option == 'o'){
+      cout << playlistTitle << " - OUTPUT FULL PLAYLISTS" << endl;
       
+      PlaylistNode* currNode = headNode;
+      int numIterations = 1;
+
+      //Prints out each node's info
+      while(currNode->GetNext != NULL){
+         cout << numIterations << "." << endl;
+         currNode->PrintPlaylistNode();
+         
+
+         currNode = currNode->GetNext();
+         numIterations++;
    }
    
 }
