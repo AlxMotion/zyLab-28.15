@@ -68,11 +68,65 @@ PlaylistNode* ExecuteMenu(char option, string playlistTitle, PlaylistNode* headN
 
          currNode = currNode->GetNext();
          numIterations++;
+         
+   //Deletes node
+   } else if(option == 'd'){
+         int IDLook = 0;
+         PlaylistNode* currNode = headNode;
+         PlaylistNode* previous = headNode;
+         
+         cout << "REMOVE SONG" << endl;
+         cout << "Enter song's unique ID" << endl;
+
+         cin >> IDLook;
+         
+         while(currNode->GetNext() != NULL){
+            if(currNode->GetID() == IDLook){
+               cout << "\"" << currNode->GetSongName() << "\"" << " removed." << endl;
+               previous->SetNext(currNode->GetNext());
+               delete currNode;
+               break;
+            }
+            previous =  currNode;
+            currNode = currNode->GetNext();
+         }
+   } else if(option == 's'){
+         string artistLook = "";
+         int numIter = 1;
+         
+         cout << "OUTPUT SONGS BY SPECIFIC ARTST" << endl;
+         cout << "Enter artist's name:" << endl;
+
+         cin >> artistLook;
+
+         while(currNode->GetNext() != NULL){
+            if(currNode->GetArtistName() == artistLook){
+               cout << numIter << "." << endl;
+               currNode->PrintPlaylistNode();
+            }
+            currNode = currNode->GetNext();
+         }
+         
+   } else if(option == 't'){
+      int totalTime = 0;
+      cout << "OUTPUT TOTAL TIME OF PLAYLIST (IN SECONDS)" << endl;
+
+      while(currNode->GetNext() != NULL){
+            totalTime += currNode->GetSongLength();
+            currNode = currNode->GetNext();
+         }
+         
+      cout << "Total time: " << totalTime << " seconds" << endl;
+         
+   } else if(option == 'c'){
+      
+         
    }
    
 }
 
 int main() {
+   char option;
    string playlistTitle = "";
 
    //Step 2: Prompting user for title of playlist
@@ -85,7 +139,9 @@ int main() {
    //Prompt user for input
    cout << "Choose an option: " << endl;
    
+   cin >> option;
 
+   ExecuteMenu(option, playlistTitle, PlaylistNode* headNode); // need to get headnode
    
    return 0;
 }
