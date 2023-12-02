@@ -43,6 +43,8 @@ int main() {
    cout << "Enter playlist's title: " << endl;
    cin >> playlistTitle;
 
+   //Step 5 call print menu and prompt user
+   PrintMenu(playlistTitle);
    
 
    
