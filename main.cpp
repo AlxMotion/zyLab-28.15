@@ -68,6 +68,25 @@ PlaylistNode* ExecuteMenu(char option, string playlistTitle, PlaylistNode* headN
 
          currNode = currNode->GetNext();
          numIterations++;
+   } else if(option == 'd'){
+         int IDLook = 0;
+         PlaylistNode* currNode = headNode;
+         PlaylistNode* previous = headNode;
+         
+         cout << "REMOVE SONG" << endl;
+         cout << "Enter song's unique ID" << endl;
+
+         cin >> IDLook;
+         
+         while(currNode->GetNext() != NULL){
+            if(currNode->GetID() == IDLook){
+               cout << "\"" << currNode->GetSongName() << "\"" << " removed." << endl;
+               previous->SetNext(currNode->GetNext());
+               break;
+            }
+            previous =  currNode;
+            currNode = currNode->GetNext();
+         }
    }
    
 }
