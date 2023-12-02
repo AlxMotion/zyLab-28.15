@@ -68,6 +68,8 @@ PlaylistNode* ExecuteMenu(char option, string playlistTitle, PlaylistNode* headN
 
          currNode = currNode->GetNext();
          numIterations++;
+         
+   //Deletes node
    } else if(option == 'd'){
          int IDLook = 0;
          PlaylistNode* currNode = headNode;
@@ -82,11 +84,29 @@ PlaylistNode* ExecuteMenu(char option, string playlistTitle, PlaylistNode* headN
             if(currNode->GetID() == IDLook){
                cout << "\"" << currNode->GetSongName() << "\"" << " removed." << endl;
                previous->SetNext(currNode->GetNext());
+               delete currNode;
                break;
             }
             previous =  currNode;
             currNode = currNode->GetNext();
          }
+   } else if(option == 's'){
+         string artistLook = "";
+         int numIter = 1;
+         
+         cout << "OUTPUT SONGS BY SPECIFIC ARTST" << endl;
+         cout << "Enter artist's name:" << endl;
+
+         cin >> artistLook;
+
+         while(currNode->GetNext() != NULL){
+            if(currNode->GetArtistName() == artistLook){
+               cout << numIter << "." << endl;
+               currNode->PrintPlaylistNode();
+            }
+            currNode = currNode->GetNext();
+         }
+         
    }
    
 }
