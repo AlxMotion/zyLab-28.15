@@ -14,7 +14,15 @@ PlaylistNode::PlaylistNode(string id, string song, string artist, int length):
       artistName(artist),
       songLength(length),
       nextNodePtr(nullptr) {}
-
+void InsertAfter(PlaylistNode* nodePtr){
+        PlaylistNode* tmpNext = nullPtr;
+        tmpNext = this->nextNodePtr;
+        this->nextNodePtr = nodePtr;
+        nodePtr->nextNodePtr = tmpNext;
+  }
+    void SetNext(PlaylistNode* nodePtr){
+          
+    }
 string PlaylistNode::GetID() const {
     return uniqueID;
 }
