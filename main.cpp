@@ -25,22 +25,20 @@ PlaylistNode* ExecuteMenu(char option, string playlistTitle, PlaylistNode* headN
       PlaylistNode* currNode = headNode->GetNext();
       int numIterations = 1;
 
-      if(headNode->GetNext() == nullptr){
+      if(headNode->GetNext() == NULL){
          cout << "Playlist is empty" << endl;
       }else{    
-         cout << "1." << endl;
+         int iteration = 1;
+         cout << iteration << "." << endl;
          currNode->PrintPlaylistNode();
-         /*
-         //Prints out each node's info
+         
+         
          while(currNode->GetNext() != NULL){
-            cout << numIterations << "." << endl;
-            currNode->PrintPlaylistNode();
-            
-   
             currNode = currNode->GetNext();
-            numIterations++;    
-         }   
-         */
+            iteration++;
+            cout << iteration << "." << endl;
+            currNode->PrintPlaylistNode();  
+         }
          
       }
    } else if(option == 'a'){
@@ -81,6 +79,60 @@ PlaylistNode* ExecuteMenu(char option, string playlistTitle, PlaylistNode* headN
       }
       lastNode->InsertAfter(newNode);
       
+   } else if(option == 'd'){
+         string IDLook = "";
+         PlaylistNode* currNode = headNode;
+         PlaylistNode* previous = headNode;
+         
+         cout << "REMOVE SONG" << endl;
+         cout << "Enter song's unique ID:" << endl;
+
+         cin >> IDLook;
+         
+         while(currNode->GetNext() != NULL){
+            if(currNode->GetID() == IDLook){
+               cout << "\"" << currNode->GetSongName() << "\"" << " removed." << endl << endl;
+               previous->SetNext(currNode->GetNext());
+               delete currNode;
+               break;
+            }
+            previous =  currNode;
+            currNode = currNode->GetNext();
+      }
+   } else if(option == 's'){
+         PlaylistNode* currNode = headNode;
+         string artistLook = "";
+         int numIter = 1;
+         
+         cout << "OUTPUT SONGS BY SPECIFIC ARTST" << endl;
+         cout << "Enter artist's name:" << endl;
+
+         cin >> artistLook;
+
+         while(currNode->GetNext() != NULL){
+            if(currNode->GetArtistName() == artistLook){
+               cout << numIter << "." << endl;
+               currNode->PrintPlaylistNode();
+            }
+            currNode = currNode->GetNext();
+         }
+         
+   } else if(option == 't'){
+      PlaylistNode* currNode = headNode->GetNext();
+      int totalTime = 0;
+      cout << "OUTPUT TOTAL TIME OF PLAYLIST (IN SECONDS)" << endl;
+      
+      totalTime = currNode->GetSongLength();
+
+      while(currNode->GetNext() != NULL){
+            currNode = currNode->GetNext();
+            totalTime += currNode->GetSongLength();
+            cout << currNode->GetSongLength() << endl;
+            
+         }
+         
+      cout << "Total time: " << totalTime << " seconds" << endl << endl;
+         
    }
    return headNode;
 }
