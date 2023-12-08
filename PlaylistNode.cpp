@@ -1,28 +1,34 @@
 #include "PlaylistNode.h"
 #include <iostream>
 
-PlaylistNode::PlaylistNode(): 
-      uniqueID("none"),
-      songName("none"),
-      artistName("none"),
-      songLength(0),
-      nextNodePtr(nullptr) {}
+PlaylistNode::PlaylistNode(){ 
+      uniqueID = "none";
+      songName = "none";
+      artistName = "none";
+      songLength = 0;
+      nextNodePtr = nullptr;
+}
 
-PlaylistNode::PlaylistNode(string id, string song, string artist, int length):
-      uniqueID(id),
-      songName(song),
-      artistName(artist),
-      songLength(length),
-      nextNodePtr(nullptr) {}
-void InsertAfter(PlaylistNode* nodePtr){
-        PlaylistNode* tmpNext = nullPtr;
+PlaylistNode::PlaylistNode(string id, string song, string artist, int length){
+      uniqueID = id;
+      songName = song;
+      artistName = artist;
+      songLength = length;
+      nextNodePtr = nullptr;
+}
+      
+void PlaylistNode::InsertAfter(PlaylistNode* nodePtr){
+        PlaylistNode* tmpNext = nullptr;
+        
         tmpNext = this->nextNodePtr;
         this->nextNodePtr = nodePtr;
         nodePtr->nextNodePtr = tmpNext;
-  }
-    void SetNext(PlaylistNode* nodePtr){
-          
-    }
+}
+
+void PlaylistNode::SetNext(PlaylistNode* nodePtr){
+          nextNodePtr = nodePtr;
+}
+
 string PlaylistNode::GetID() const {
     return uniqueID;
 }
@@ -41,4 +47,12 @@ int PlaylistNode::GetSongLength() const {
 
 PlaylistNode* PlaylistNode::GetNext() const {
     return nextNodePtr;
+}
+
+void PlaylistNode::PrintPlaylistNode() const{
+   cout << "Unique ID: " << uniqueID << endl;   
+   cout << "Song Name: " << songName << endl;   
+   cout << "Artist Name: " << artistName << endl;   
+   cout << "Song Length (in seconds): " << songLength << endl;  
+   cout << endl;
 }
