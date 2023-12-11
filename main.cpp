@@ -1,3 +1,6 @@
+// https://github.com/AlxMotion/zyLab-28.15/tree/main
+// Anthony Ramone
+// Alex Motion
 #include <iostream>
 #include "PlaylistNode.h"
 #include "string.h"
